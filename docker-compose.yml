@@ -12,6 +12,8 @@ services:
       # dummy configure
       - AWS_DEFAULT_REGION=ap-northeast-1
       - AWS_DEFAULT_OUTPUT=json
+      - AWS_ACCESS_KEY_ID=xxx
+      - AWS_SECRET_ACCESS_KEY=xxx
     ports:
       # jupyterlabのポート
       - 8888:8888
