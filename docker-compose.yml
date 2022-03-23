@@ -12,6 +12,4 @@ services:
       # jupyterlabのポート
       - 8888:8888
     command: /home/jupyter/jupyter_start.sh
-networks:
-  glue.dev.network:
-    name: glue.dev.network
+
