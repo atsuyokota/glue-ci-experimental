@@ -1,0 +1,17 @@
+version: '3.5'
+services:
+  glue.dev.summary:
+    container_name: glue.test
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      # jupyterlabのdefaultのWorkspaceにlocalファイルをマウントします。
+      - ./:/home/jupyter/jupyter_default_dir
+    ports:
+      # jupyterlabのポート
+      - 8888:8888
+    command: /home/jupyter/jupyter_start.sh
+networks:
+  glue.dev.network:
+    name: glue.dev.network

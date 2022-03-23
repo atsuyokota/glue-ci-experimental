@@ -1,0 +1,29 @@
+name: Minimal Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  Check:
+
+    runs-on: ubuntu-latest
+    env:
+      AWS_DEFAULT_REGION: us-east-1
+    strategy:
+      matrix:
+        python-version: [3.7]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+      - name: Install Requirements
+        run: |
+          python -m pip install --upgrade pip
+      - name: Test Metadata
+        run: pytest tests/test_proto.py
