@@ -8,6 +8,10 @@ services:
     volumes:
       # jupyterlabのdefaultのWorkspaceにlocalファイルをマウントします。
       - ./:/home/jupyter/jupyter_default_dir
+    environment:
+      # dummy configure
+      - AWS_DEFAULT_REGION=ap-northeast-1
+      - AWS_DEFAULT_OUTPUT=json
     ports:
       # jupyterlabのポート
       - 8888:8888
