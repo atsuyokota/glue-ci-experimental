@@ -29,4 +29,4 @@ jobs:
           python -m pip install --upgrade pip
           pip install pytest
       - name: Test Proto
-        run: docker run samplepy poetry run pytest
+        run: docker run samplepy run pytest
