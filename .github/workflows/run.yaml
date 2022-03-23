@@ -20,13 +20,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Set up Docker                                    # pull してイメージを立ち上げ
+        run: |
+          docker-compose up -d
+      - name: Run test                                         # pytestを行う。
+        run: docker-compose exec -T python pytest
 #      - name: Set up Python ${{ matrix.python-version }}
 #        uses: actions/setup-python@v1
-      - name: Build Docker image
-        run: docker build -t samplepy .
-      - name: Install Requirements
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-      - name: Test Proto
-        run: docker run samplepy run pytest
+#      - name: Build Docker image
+#        run: docker build -t samplepy .
+#      - name: Install Requirements
+#        run: |
+#          python -m pip install --upgrade pip
+#          pip install pytest
+#      - name: Test Proto
+#        run: docker run samplepy run pytest
